@@ -13,7 +13,7 @@ source:
     - use_conda_forge_shared_libraries.patch
 
 build:
-  number: 0
+  number: 1
   # Windows builds seem too experimental upstream
   # https://github.com/google/brunsli/issues/51
   # https://github.com/google/brunsli/issues/62
@@ -32,6 +32,9 @@ requirements:
     - ninja  # [win]
   host:
     - brotli
+  # Work around missing `run_exports` in defaults package
+  run:
+    - "{{ pin_compatible('brotli', max_pin='x.x') }}"
 
 test:
   commands:
