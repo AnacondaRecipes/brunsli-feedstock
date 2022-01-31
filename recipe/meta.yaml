@@ -30,6 +30,8 @@ requirements:
     - cmake
     - make   # [unix]
     - ninja  # [win]
+    - patch     # [not win]
+    - m2-patch  # [win]
   host:
     - brotli
   # Work around missing `run_exports` in defaults package
