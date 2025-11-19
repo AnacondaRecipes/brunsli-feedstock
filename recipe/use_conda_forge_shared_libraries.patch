@@ -1,18 +1,24 @@
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index 7d785be..edcf192 100644
+index 7d785be..14f5c2e 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
+@@ -1,4 +1,4 @@
+-cmake_minimum_required(VERSION 3.1)
++cmake_minimum_required(VERSION 3.19)
+ 
+ project(BRUNSLI C CXX)
+ 
 @@ -26,7 +26,7 @@ set(CMAKE_CXX_STANDARD 11)
  set(CMAKE_CXX_EXTENSIONS OFF)
  set(CMAKE_CXX_STANDARD_REQUIRED YES)
  
 -add_subdirectory(third_party)
-+# add_subdirectory(third_party)
++#add_subdirectory(third_party)
  
  # The Brunsli library definition.
  include(brunsli.cmake)
 diff --git a/brunsli.cmake b/brunsli.cmake
-index 1e87527..48add4c 100644
+index 1e87527..f758f0d 100644
 --- a/brunsli.cmake
 +++ b/brunsli.cmake
 @@ -57,7 +57,7 @@ add_library(brunslidec-static STATIC
@@ -46,7 +52,7 @@ index 1e87527..48add4c 100644
 +    TARGETS cbrunsli dbrunsli
 +    RUNTIME DESTINATION "${CMAKE_INSTALL_BINDIR}"
 +  )
-+
++  
    install(
      DIRECTORY ${BRUNSLI_INCLUDE_DIRS}/brunsli
      DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}"
