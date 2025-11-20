@@ -13,7 +13,7 @@ source:
     - use_conda_forge_shared_libraries.patch
 
 build:
-  number: 1
+  number: 2
   # Windows builds seem too experimental upstream
   # https://github.com/google/brunsli/issues/51
   # https://github.com/google/brunsli/issues/62
@@ -25,15 +25,14 @@ build:
 
 requirements:
   build:
+    - {{ stdlib('c') }}
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
     - cmake
     - make   # [unix]
     - ninja  # [win]
-    - patch     # [not win]
-    - m2-patch  # [win]
   host:
-    - brotli
+    - brotli 1.2.0
   # Work around missing `run_exports` in defaults package
   run:
     - "{{ pin_compatible('brotli', max_pin='x.x') }}"
@@ -62,12 +61,12 @@ about:
   license_family: MIT
   license_file: LICENSE
   summary: Practical JPEG Repacker
-
   description: |
     Brunsli is a lossless JPEG repacking library.
-
     Brunsli allows for a 22% decrease in file size while
     allowing the original JPEG to be recovered byte-by-byte.
+  dev_url: https://github.com/google/brunsli
+  doc_url: https://github.com/google/brunsli/blob/v0.1/README.md
 
 extra:
   recipe-maintainers:
